@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Field Guide to Zainab — Specimen Turns 19</title>
+<meta name="description" content="A field guide to one Zainab, cataloged with love and mild disgust, on the occasion of her 19th year.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void: #120d08;
+    --void-2: #1c140c;
+    --parchment: #e8dcc0;
+    --parchment-dim: #cbb98f;
+    --blood: #7a2020;
+    --blood-bright: #a53030;
+    --shell: #3c5c44;
+    --shell-bright: #5c8468;
+    --amber: #b6802f;
+    --amber-bright: #e0a94a;
+    --ash: #9c8f78;
+    --line: rgba(232,220,192,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(182,128,47,0.09), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 15% 90%, rgba(60,92,68,0.08), transparent 60%),
+      var(--void);
+    color:var(--parchment);
+    font-family:'Special Elite', monospace;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* paper grain */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events:none;
+    z-index:2;
+    mix-blend-mode:overlay;
+  }
+  body::after{
+    content:"";
+    position:fixed; inset:0;
+    background:radial-gradient(ellipse 70% 70% at 50% 40%, transparent 40%, rgba(0,0,0,0.55) 100%);
+    pointer-events:none;
+    z-index:3;
+  }
+
+  h1,h2,h3{margin:0;}
+  .display{font-family:'UnifrakturCook', serif;}
+  .heading{font-family:'Cormorant Garamond', serif;}
+
+  a{color:var(--amber-bright);}
+
+  ::selection{background:var(--blood); color:var(--parchment);}
+
+  :focus-visible{
+    outline:2px solid var(--amber-bright);
+    outline-offset:3px;
+  }
+
+  /* ---------- ambient corners ---------- */
+  .cobweb{
+    position:fixed;
+    width:220px; height:220px;
+    opacity:0.16;
+    pointer-events:none;
+    z-index:4;
+  }
+  .cobweb.tl{top:-10px; left:-10px;}
+  .cobweb.br{bottom:-10px; right:-10px; transform:rotate(180deg);}
+
+  /* ---------- floating embers ---------- */
+  #embers{
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:1;
+    overflow:hidden;
+  }
+  .ember{
+    position:absolute;
+    bottom:-10px;
+    width:3px; height:3px;
+    border-radius:50%;
+    background:var(--amber-bright);
+    box-shadow:0 0 6px 2px rgba(224,169,74,0.6);
+    animation:rise linear infinite;
+    opacity:0;
+  }
+  @keyframes rise{
+    0%{transform:translateY(0) translateX(0); opacity:0;}
+    8%{opacity:0.8;}
+    90%{opacity:0.3;}
+    100%{transform:translateY(-105vh) translateX(var(--drift,20px)); opacity:0;}
+  }
+
+  section{position:relative; z-index:5;}
+
+  /* ================= HERO ================= */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:6vh 5vw;
+    position:relative;
+  }
+
+  .flame-wrap{
+    width:14px; height:34px;
+    margin-bottom:2.2rem;
+    position:relative;
+  }
+  .flame{
+    width:100%; height:100%;
+    background:radial-gradient(ellipse at 50% 70%, #fff2c4 0%, var(--amber-bright) 35%, var(--blood-bright) 70%, transparent 100%);
+    border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;
+    animation:flicker 2.4s ease-in-out infinite;
+    filter:blur(0.3px);
+  }
+  @keyframes flicker{
+    0%,100%{transform:scaleY(1) scaleX(1) rotate(-1deg); opacity:1;}
+    20%{transform:scaleY(0.92) scaleX(1.05) rotate(1deg); opacity:0.9;}
+    45%{transform:scaleY(1.08) scaleX(0.95) rotate(-2deg); opacity:1;}
+    70%{transform:scaleY(0.96) scaleX(1.02) rotate(2deg); opacity:0.85;}
+  }
+  .flame-glow{
+    position:absolute; left:50%; top:0;
+    transform:translate(-50%,-30%);
+    width:220px; height:220px;
+    background:radial-gradient(circle, rgba(224,169,74,0.18), transparent 70%);
+    pointer-events:none;
+  }
+
+  .eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--ash);
+    margin-bottom:1.1rem;
+  }
+
+  .hero h1{
+    font-size:clamp(2.6rem, 8vw, 5.2rem);
+    line-height:1.05;
+    color:var(--parchment);
+    text-shadow:0 0 26px rgba(224,169,74,0.28), 0 2px 0 rgba(0,0,0,0.6);
+    max-width:16ch;
+  }
+
+  .hero .sub{
+    margin-top:1.6rem;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(1.05rem, 2.2vw, 1.4rem);
+    color:var(--parchment-dim);
+    max-width:38ch;
+  }
+
+  .hero .meta{
+    margin-top:2.6rem;
+    font-size:0.68rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ash);
+    display:flex; gap:1.4rem; flex-wrap:wrap; justify-content:center;
+  }
+  .hero .meta span{border-bottom:1px dashed var(--line); padding-bottom:2px;}
+
+  .scroll-cue{
+    margin-top:4rem;
+    font-size:0.65rem;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ash);
+    animation:bob 2.6s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0); opacity:0.6;}
+    50%{transform:translateY(6px); opacity:1;}
+  }
+
+  /* ================= PLACARD ================= */
+  .placard-wrap{
+    display:flex; justify-content:center;
+    padding:2vh 5vw 8vh;
+  }
+  .placard{
+    max-width:640px;
+    width:100%;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(232,220,192,0.035), rgba(232,220,192,0.01));
+    padding:2.4rem clamp(1.4rem,4vw,3rem);
+    position:relative;
+  }
+  .placard::before, .placard::after{
+    content:"";
+    position:absolute; width:14px; height:14px;
+    border:1px solid var(--amber);
+  }
+  .placard::before{top:-1px; left:-1px; border-right:none; border-bottom:none;}
+  .placard::after{bottom:-1px; right:-1px; border-left:none; border-top:none;}
+
+  .placard h2{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--amber-bright);
+    margin-bottom:1.2rem;
+    text-align:center;
+  }
+  .placard p{
+    font-size:0.86rem;
+    line-height:1.85;
+    color:var(--parchment-dim);
+    margin:0 0 0.9rem;
+  }
+  .placard dl{
+    margin-top:1.6rem;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:0.5rem 1.2rem;
+    font-size:0.74rem;
+  }
+  .placard dt{color:var(--ash); text-transform:uppercase; letter-spacing:0.08em;}
+  .placard dd{margin:0; color:var(--parchment);}
+
+  .sr-only{
+    position:absolute; width:1px; height:1px;
+    padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  #gate p{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.05rem;
+    line-height:1.85;
+    color:var(--parchment-dim);
+    margin:0 0 1.1rem;
+    text-align:left;
+  }
+  #gate .phrase-target{
+    font-style:italic;
+    color:var(--amber-bright);
+    border-left:2px solid var(--blood);
+    padding-left:1rem;
+  }
+
+  .gate-timer{
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ash);
+    margin-bottom:1rem;
+  }
+  .gate-timer.low{color:var(--blood-bright);}
+  #timer{color:var(--parchment); font-variant-numeric:tabular-nums;}
+  .gate-timer.low #timer{color:var(--blood-bright);}
+
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.4rem;
+    border-bottom:1px solid var(--line);
+    margin-bottom:1.4rem;
+    padding-bottom:0;
+  }
+  .tab-btn{
+    background:transparent;
+    border:1px solid transparent;
+    border-bottom:none;
+    color:var(--ash);
+    font-family:'Special Elite', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    padding:0.6rem 0.9rem;
+    cursor:pointer;
+    transform:translateY(1px);
+  }
+  .tab-btn:hover{color:var(--parchment-dim);}
+  .tab-btn.active{
+    color:var(--amber-bright);
+    border-color:var(--line);
+    border-bottom:1px solid var(--void-2);
+    background:rgba(232,220,192,0.03);
+  }
+
+  .tab-panel p{margin-bottom:1.2rem;}
+
+  .gate-row{
+    display:flex;
+    gap:0.7rem;
+    flex-wrap:wrap;
+  }
+  .gate-row input{
+    flex:1 1 180px;
+    min-width:0;
+    background:rgba(232,220,192,0.04);
+    border:1px solid var(--line);
+    color:var(--parchment);
+    font-family:'Special Elite', monospace;
+    font-size:0.85rem;
+    padding:0.75rem 0.9rem;
+  }
+  .gate-row input:focus{
+    border-color:var(--amber);
+    outline:none;
+  }
+  .gate-row button{
+    background:transparent;
+    border:1px solid var(--amber);
+    color:var(--amber-bright);
+    font-family:'Special Elite', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:0.75rem 1.3rem;
+    cursor:pointer;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .gate-row button:hover, .gate-row button:focus-visible{
+    background:var(--amber);
+    color:var(--void);
+  }
+
+  .gate-feedback{
+    margin-top:0.9rem;
+    font-size:0.78rem;
+    min-height:1.2em;
+    color:var(--blood-bright);
+  }
+  .gate-feedback.ok{color:var(--shell-bright);}
+
+  .retry-btn{
+    display:block;
+    background:transparent;
+    border:1px solid var(--blood-bright);
+    color:var(--blood-bright);
+    font-family:'Special Elite', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:0.6rem 1.1rem;
+    cursor:pointer;
+  }
+  .retry-btn:hover, .retry-btn:focus-visible{
+    background:var(--blood-bright);
+    color:var(--void);
+  }
+
+  .gate-feedback.shake{animation:shake 0.4s ease;}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-6px);}
+    75%{transform:translateX(6px);}
+  }
+
+  .gate-success-msg{
+    text-align:center;
+    font-style:italic;
+    color:var(--amber-bright);
+  }
+
+  #locked-content.fade-in{
+    animation:fadeInUp 1.1s ease both;
+  }
+  @keyframes fadeInUp{
+    from{opacity:0; transform:translateY(24px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #locked-content.fade-in{animation:none;}
+    .gate-feedback.shake{animation:none;}
+  }
+
+  /* ================= CABINET SECTION ================= */
+  .cabinet-intro{
+    text-align:center;
+    padding:4vh 5vw 2vh;
+  }
+  .cabinet-intro .kicker{
+    font-size:0.7rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--amber-bright);
+    margin-bottom:0.8rem;
+  }
+  .cabinet-intro h2{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    color:var(--parchment);
+  }
+  .cabinet-intro p{
+    max-width:52ch;
+    margin:1rem auto 0;
+    color:var(--ash);
+    font-size:0.85rem;
+    line-height:1.8;
+  }
+
+  .cabinet{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:2.2rem 1.6rem;
+    max-width:1280px;
+    margin:5vh auto;
+    padding:0 5vw;
+  }
+
+  .specimen{
+    --tilt:0deg;
+    position:relative;
+    background:linear-gradient(180deg, rgba(232,220,192,0.05), rgba(232,220,192,0.015));
+    border:1px solid var(--line);
+    padding:2.6rem 1.3rem 1.5rem;
+    transform:rotate(var(--tilt));
+    transition:transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    cursor:pointer;
+  }
+  .specimen:hover, .specimen:focus-within{
+    transform:rotate(0deg) translateY(-4px);
+    border-color:var(--amber);
+    box-shadow:0 14px 30px -10px rgba(0,0,0,0.55), 0 0 0 1px rgba(182,128,47,0.15);
+  }
+
+  .pin{
+    position:absolute;
+    top:-7px; left:50%;
+    transform:translateX(-50%);
+    width:11px; height:11px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--blood-bright), var(--blood) 70%);
+    box-shadow:0 0 6px rgba(122,32,32,0.6), 0 1px 2px rgba(0,0,0,0.6);
+  }
+
+  .bug-icon{
+    display:block;
+    width:56px; height:56px;
+    margin:0 auto 1rem;
+    color:var(--amber-bright);
+    transition:transform 0.4s ease;
+  }
+  .specimen.shell-tint .bug-icon{color:var(--shell-bright);}
+  .specimen.blood-tint .bug-icon{color:var(--blood-bright);}
+
+  .specimen:hover .bug-icon, .specimen:focus-within .bug-icon{
+    animation:wriggle 0.6s ease-in-out;
+  }
+  .specimen.scurry .bug-icon{
+    animation:scurry 0.55s cubic-bezier(.36,.07,.19,.97);
+  }
+  @keyframes wriggle{
+    0%,100%{transform:rotate(0deg);}
+    25%{transform:rotate(-6deg) translateX(-2px);}
+    50%{transform:rotate(5deg) translateX(2px);}
+    75%{transform:rotate(-3deg);}
+  }
+  @keyframes scurry{
+    0%{transform:translate(0,0) rotate(0deg);}
+    20%{transform:translate(6px,-3px) rotate(8deg);}
+    40%{transform:translate(-8px,2px) rotate(-10deg);}
+    60%{transform:translate(5px,-4px) rotate(6deg);}
+    80%{transform:translate(-3px,1px) rotate(-3deg);}
+    100%{transform:translate(0,0) rotate(0deg);}
+  }
+
+  .entry-no{
+    position:absolute;
+    top:0.7rem; right:0.9rem;
+    font-size:0.6rem;
+    letter-spacing:0.08em;
+    color:var(--ash);
+  }
+
+  .common-name{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+    font-size:1.5rem;
+    text-align:center;
+    color:var(--parchment);
+    margin-bottom:0.25rem;
+  }
+  .latin-name{
+    display:block;
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:0.88rem;
+    color:var(--amber-bright);
+    margin-bottom:0.9rem;
+  }
+  .specimen.shell-tint .latin-name{color:var(--shell-bright);}
+  .specimen.blood-tint .latin-name{color:var(--blood-bright);}
+
+  .field-note{
+    font-size:0.76rem;
+    line-height:1.7;
+    color:var(--parchment-dim);
+    text-align:center;
+    border-top:1px dashed var(--line);
+    padding-top:0.8rem;
+  }
+
+  /* ================= FINALE ================= */
+  .finale{
+    padding:10vh 5vw 4vh;
+    text-align:center;
+    position:relative;
+  }
+  .molt{
+    width:110px; height:110px;
+    margin:0 auto 2rem;
+    opacity:0.85;
+  }
+  .finale .kicker{
+    font-size:0.7rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--blood-bright);
+    margin-bottom:1rem;
+  }
+  .finale h2{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:clamp(1.7rem,4vw,2.3rem);
+    max-width:22ch;
+    margin:0 auto;
+    line-height:1.3;
+  }
+  .finale .note{
+    max-width:56ch;
+    margin:1.6rem auto 0;
+    font-size:0.86rem;
+    line-height:1.9;
+    color:var(--parchment-dim);
+  }
+
+  .letter{
+    max-width:560px;
+    margin:5rem auto 0;
+    text-align:left;
+    border-top:1px solid var(--line);
+    padding-top:3rem;
+  }
+  .letter p{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(1.05rem,2.3vw,1.28rem);
+    line-height:1.85;
+    color:var(--parchment);
+    margin:0 0 1.3rem;
+  }
+  .letter .sign{
+    margin-top:2.2rem;
+    font-style:italic;
+    color:var(--amber-bright);
+  }
+
+  .addendum{
+    max-width:520px;
+    margin:3.5rem auto 0;
+    padding:1.8rem clamp(1.2rem,4vw,2.2rem);
+    border:1px dashed var(--line);
+    background:rgba(232,220,192,0.02);
+    text-align:center;
+    position:relative;
+    animation:hover-glow 5s ease-in-out infinite;
+  }
+  @keyframes hover-glow{
+    0%,100%{opacity:0.92;}
+    50%{opacity:1;}
+  }
+  .addendum .ghost-icon{
+    width:34px; height:34px;
+    color:var(--parchment-dim);
+    opacity:0.8;
+    margin-bottom:0.8rem;
+    animation:drift 4.5s ease-in-out infinite;
+  }
+  @keyframes drift{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+  }
+  .addendum .kicker{
+    font-size:0.62rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--ash);
+    margin-bottom:0.9rem;
+  }
+  .addendum p{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1rem;
+    line-height:1.85;
+    color:var(--parchment-dim);
+    margin:0 0 1rem;
+  }
+  .addendum .sign{
+    margin-top:0.6rem;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-style:normal;
+    color:var(--amber-bright);
+  }
+
+  .birthday-line{
+    margin-top:5rem;
+    font-family:'UnifrakturCook', serif;
+    font-size:clamp(2.1rem,6vw,3.6rem);
+    color:var(--amber-bright);
+    text-shadow:0 0 30px rgba(224,169,74,0.35);
+  }
+  .age{
+    display:inline-block;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+  }
+
+  footer{
+    text-align:center;
+    padding:5vh 5vw 6vh;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    color:var(--ash);
+    text-transform:uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  @media (max-width:640px){
+    .placard dl{grid-template-columns:1fr; gap:0.15rem 0;}
+    .placard dt{margin-top:0.5rem;}
+    .letter{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<div id="embers"></div>
+
+<svg class="cobweb tl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g stroke="#e8dcc0" stroke-width="0.6">
+    <path d="M0,0 L200,80 M0,0 L150,150 M0,0 L80,200 M0,0 L200,0 M0,0 L0,200"/>
+    <path d="M0,0 Q10,25 5,45 Q35,35 40,55 M0,0 Q30,15 35,35 Q60,25 70,45 M0,0 Q55,10 65,25 Q90,15 105,30 M0,0 Q85,8 100,18 Q130,10 150,20"/>
+    <path d="M0,0 Q20,60 10,90 Q55,75 60,105 M0,0 Q45,45 45,75 Q85,65 95,90"/>
+  </g>
+</svg>
+<svg class="cobweb br" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g stroke="#e8dcc0" stroke-width="0.6">
+    <path d="M0,0 L200,80 M0,0 L150,150 M0,0 L80,200 M0,0 L200,0 M0,0 L0,200"/>
+    <path d="M0,0 Q10,25 5,45 Q35,35 40,55 M0,0 Q30,15 35,35 Q60,25 70,45 M0,0 Q55,10 65,25 Q90,15 105,30 M0,0 Q85,8 100,18 Q130,10 150,20"/>
+  </g>
+</svg>
+
+<!-- ============ ICON LIBRARY ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+
+<symbol id="ic-moth" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <path d="M30 20 C18 6, 4 10, 6 24 C8 34, 20 30, 30 24"/>
+    <path d="M30 20 C42 6, 56 10, 54 24 C52 34, 40 30, 30 24"/>
+    <path d="M30 24 C22 34, 12 40, 10 50 C18 48, 26 42, 30 32"/>
+    <path d="M30 24 C38 34, 48 40, 50 50 C42 48, 34 42, 30 32"/>
+    <line x1="30" y1="18" x2="30" y2="42"/>
+    <path d="M28 18 Q22 8 16 6"/>
+    <path d="M32 18 Q38 8 44 6"/>
+    <circle cx="16" cy="6" r="1.4" fill="currentColor"/>
+    <circle cx="44" cy="6" r="1.4" fill="currentColor"/>
+  </g>
+</symbol>
+
+<symbol id="ic-scorpion" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="24" cy="34" rx="9" ry="6"/>
+    <path d="M32 32 Q42 30 46 22 Q50 14 44 10 Q40 8 40 14"/>
+    <circle cx="40" cy="14" r="2" fill="currentColor"/>
+    <path d="M17 30 L8 26 M16 34 L6 34 M17 38 L8 42"/>
+    <path d="M15 28 L9 22 M13 30 L6 27"/>
+    <path d="M28 40 L26 46 M22 40 L18 45"/>
+  </g>
+</symbol>
+
+<symbol id="ic-mosquito" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="30" cy="30" rx="4" ry="10" transform="rotate(10 30 30)"/>
+    <line x1="31" y1="20" x2="36" y2="8"/>
+    <path d="M27 24 C14 18, 6 20, 8 26 C10 30, 20 28, 27 28"/>
+    <path d="M33 24 C46 18, 54 20, 52 26 C50 30, 40 28, 33 28"/>
+    <path d="M27 30 L14 30 M28 34 L16 40 M32 30 L44 32 M33 34 L46 42"/>
+  </g>
+</symbol>
+
+<symbol id="ic-beetle" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="30" cy="34" rx="14" ry="17"/>
+    <line x1="30" y1="18" x2="30" y2="50"/>
+    <ellipse cx="30" cy="15" rx="6" ry="5"/>
+    <path d="M26 10 L22 4 M34 10 L38 4"/>
+    <path d="M17 24 L6 20 M16 32 L4 32 M18 42 L7 46"/>
+    <path d="M43 24 L54 20 M44 32 L56 32 M42 42 L53 46"/>
+  </g>
+</symbol>
+
+<symbol id="ic-stick" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <path d="M8 30 L50 30"/>
+    <path d="M14 30 L6 20 M14 30 L6 40"/>
+    <path d="M22 30 L16 18 M22 30 L14 42"/>
+    <path d="M32 30 L26 44 M32 30 L38 18"/>
+    <path d="M42 30 L48 42 M42 30 L50 20"/>
+    <circle cx="8" cy="30" r="1.6" fill="currentColor"/>
+  </g>
+</symbol>
+
+<symbol id="ic-silverfish" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <path d="M10 30 Q30 18 50 30 Q30 34 10 30"/>
+    <path d="M50 30 L58 24 M50 30 L58 30 M50 30 L58 36"/>
+    <path d="M10 30 L2 24 M10 30 L2 36"/>
+    <path d="M20 32 L16 40 M28 33 L26 42 M36 33 L38 42"/>
+  </g>
+</symbol>
+
+<symbol id="ic-earwig" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <path d="M10 30 Q30 24 46 30 Q30 36 10 30"/>
+    <path d="M46 30 Q54 24 56 18 M46 30 Q54 36 56 42"/>
+    <path d="M10 30 L2 22 M10 28 L2 30"/>
+    <path d="M18 33 L14 42 M26 34 L24 44 M34 33 L36 43"/>
+  </g>
+</symbol>
+
+<symbol id="ic-bee" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="30" cy="34" rx="10" ry="13"/>
+    <path d="M22 26 Q30 30 38 26 M20 33 Q30 37 40 33 M21 40 Q30 44 39 40"/>
+    <circle cx="30" cy="17" r="6"/>
+    <path d="M22 12 L16 4 M38 12 L44 4"/>
+    <path d="M20 24 Q6 14 10 26 Q14 34 22 28"/>
+    <path d="M40 24 Q54 14 50 26 Q46 34 38 28"/>
+  </g>
+</symbol>
+
+<symbol id="ic-fly" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="30" cy="32" rx="7" ry="9"/>
+    <circle cx="30" cy="18" r="5"/>
+    <path d="M23 26 Q10 16 14 28 Q18 36 26 30"/>
+    <path d="M37 26 Q50 16 46 28 Q42 36 34 30"/>
+    <path d="M24 36 L14 42 M27 40 L20 48 M33 40 L40 48 M36 36 L46 42"/>
+  </g>
+</symbol>
+
+<symbol id="ic-strider" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="30" cy="30" rx="12" ry="4"/>
+    <path d="M20 30 L2 14 M20 30 L2 46"/>
+    <path d="M28 32 L18 50"/>
+    <path d="M32 32 L42 50"/>
+    <path d="M40 30 L58 14 M40 30 L58 46"/>
+  </g>
+</symbol>
+
+<symbol id="ic-pillbug" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <path d="M14 30 Q14 14 30 14 Q46 14 46 30 Q46 42 30 42 Q14 42 14 30 Z"/>
+    <path d="M18 18 Q30 26 42 18 M15 26 Q30 32 45 26 M16 34 Q30 38 44 34"/>
+    <path d="M14 28 L6 26 M14 32 L6 34"/>
+  </g>
+</symbol>
+
+<symbol id="ic-spider" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="30" cy="34" rx="8" ry="9"/>
+    <circle cx="30" cy="20" r="5"/>
+    <path d="M23 26 L8 14 M23 30 L4 26 M23 36 L6 40 M23 40 L10 50"/>
+    <path d="M37 26 L52 14 M37 30 L56 26 M37 36 L54 40 M37 40 L50 50"/>
+  </g>
+</symbol>
+
+<symbol id="ic-cockroach" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <path d="M18 20 Q30 12 42 20 Q46 34 40 46 Q30 52 20 46 Q14 34 18 20 Z"/>
+    <path d="M22 18 L10 6 M38 18 L50 6"/>
+    <path d="M17 28 L4 24 M17 34 L4 34 M19 42 L7 46"/>
+    <path d="M43 28 L56 24 M43 34 L56 34 M41 42 L53 46"/>
+  </g>
+</symbol>
+
+<symbol id="ic-cricket" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <ellipse cx="24" cy="28" rx="10" ry="8"/>
+    <path d="M18 22 L8 12"/>
+    <path d="M16 26 L6 24 M17 32 L8 34"/>
+    <path d="M32 26 Q44 20 48 8"/>
+    <path d="M32 32 Q46 40 40 54 Q34 52 32 42"/>
+    <path d="M40 54 L46 58 M40 54 L34 58"/>
+  </g>
+</symbol>
+
+<symbol id="ic-ghost" viewBox="0 0 60 60">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 46 L16 26 Q16 10 30 10 Q44 10 44 26 L44 46 L38 40 L32 46 L26 40 L20 46 Z"/>
+    <circle cx="23" cy="24" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="37" cy="24" r="1.6" fill="currentColor" stroke="none"/>
+  </g>
+</symbol>
+
+<symbol id="ic-molt" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-width="1.3">
+    <path d="M50 10 C30 10 22 30 24 50 C26 72 36 88 50 90 C64 88 74 72 76 50 C78 30 70 10 50 10 Z" stroke-dasharray="2 3"/>
+    <path d="M50 10 C36 12 30 28 31 46 C32 64 40 80 50 84" opacity="0.5"/>
+    <path d="M38 46 L62 40 M36 58 L60 54 M40 70 L58 68"/>
+    <path d="M50 90 L46 100 M50 90 L54 100"/>
+  </g>
+</symbol>
+
+</defs>
+</svg>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="flame-wrap">
+    <div class="flame-glow"></div>
+    <div class="flame"></div>
+  </div>
+  <p class="eyebrow">Museum of Unnatural History &mdash; Private Wing</p>
+  <h1 class="display">A&nbsp;Field&nbsp;Guide<br>to&nbsp;Zainab</h1>
+  <p class="sub">Compiled from years of close (and reluctant) observation. Eighteen classifications. One impossible specimen.</p>
+  <div class="meta">
+    <span>Est. friendship, unknown year</span>
+    <span>Subject age: turning 19</span>
+    <span>Status: still infested with charm</span>
+  </div>
+  <div class="scroll-cue">&#8595; open the cabinet &#8595;</div>
+</section>
+
+<!-- ============ GATE ============ -->
+<section class="placard-wrap">
+  <div class="placard" id="gate">
+    <h2 id="gate-title">Before You Enter</h2>
+
+    <div id="riddle-stage">
+      <p>Every subject in this cabinet converges on the same number. Pick one field of study, answer its question, and the case opens.</p>
+
+      <div class="gate-timer">Time remaining: <span id="timer">01:40</span></div>
+
+      <div class="tabs" role="tablist" aria-label="Choose a subject">
+        <button type="button" class="tab-btn active" data-tab="phy" role="tab" aria-selected="true" aria-controls="panel-phy" id="tabbtn-phy">Physics</button>
+        <button type="button" class="tab-btn" data-tab="chem" role="tab" aria-selected="false" aria-controls="panel-chem" id="tabbtn-chem">Chemistry</button>
+        <button type="button" class="tab-btn" data-tab="bot" role="tab" aria-selected="false" aria-controls="panel-bot" id="tabbtn-bot">Botany</button>
+        <button type="button" class="tab-btn" data-tab="zoo" role="tab" aria-selected="false" aria-controls="panel-zoo" id="tabbtn-zoo">Zoology</button>
+      </div>
+
+      <div class="tab-panel" id="panel-phy" role="tabpanel" aria-labelledby="tabbtn-phy">
+        <p>According to the Standard Model of particle physics, how many independent free parameters are required to fully describe all known particles and forces?</p>
+        <div class="gate-row">
+          <label for="ans-phy" class="sr-only">Your answer</label>
+          <input type="text" class="answer-input" id="ans-phy" inputmode="numeric" autocomplete="off" placeholder="Your answer">
+          <button type="button" class="answer-submit">Unlock</button>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-chem" role="tabpanel" aria-labelledby="tabbtn-chem" hidden>
+        <p>What is the atomic number of Potassium (K) on the periodic table?</p>
+        <div class="gate-row">
+          <label for="ans-chem" class="sr-only">Your answer</label>
+          <input type="text" class="answer-input" id="ans-chem" inputmode="numeric" autocomplete="off" placeholder="Your answer">
+          <button type="button" class="answer-submit">Unlock</button>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-bot" role="tabpanel" aria-labelledby="tabbtn-bot" hidden>
+        <p>What is the haploid chromosome number (n) of the common grapevine, <em>Vitis vinifera</em>?</p>
+        <div class="gate-row">
+          <label for="ans-bot" class="sr-only">Your answer</label>
+          <input type="text" class="answer-input" id="ans-bot" inputmode="numeric" autocomplete="off" placeholder="Your answer">
+          <button type="button" class="answer-submit">Unlock</button>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-zoo" role="tabpanel" aria-labelledby="tabbtn-zoo" hidden>
+        <p>What is the minimum number of vertebrae typically found in a domestic cat's tail?</p>
+        <div class="gate-row">
+          <label for="ans-zoo" class="sr-only">Your answer</label>
+          <input type="text" class="answer-input" id="ans-zoo" inputmode="numeric" autocomplete="off" placeholder="Your answer">
+          <button type="button" class="answer-submit">Unlock</button>
+        </div>
+      </div>
+
+      <p class="gate-feedback" id="riddle-feedback" aria-live="polite"></p>
+    </div>
+
+    <div id="phrase-stage" hidden>
+      <p>The clock won. Before the case opens anyway, one condition remains &mdash; type the following, exactly as written:</p>
+      <p class="phrase-target">&ldquo;I, Zainab, is a dumb bitch and confirm that Mustafa is the smartest person I know.&rdquo;</p>
+      <div class="gate-row">
+        <label for="phrase-input" class="sr-only">Type the confirmation</label>
+        <input type="text" id="phrase-input" autocomplete="off" placeholder="Type it exactly">
+        <button type="button" id="phrase-submit">Confirm</button>
+      </div>
+      <p class="gate-feedback" id="phrase-feedback" aria-live="polite"></p>
+    </div>
+
+    <div id="gate-success" hidden>
+      <p class="gate-success-msg">The case creaks open&hellip;</p>
+    </div>
+  </div>
+</section>
+
+<div id="locked-content" hidden>
+
+<!-- ============ CABINET ============ -->
+<section class="cabinet-intro">
+  <p class="kicker">Exhibit One</p>
+  <h2>The Specimen Cabinet</h2>
+  <p>Eighteen pinned entries, catalogued in the order they were discovered. Hover to disturb them. Click if you dare.</p>
+</section>
+
+<div class="cabinet" id="cabinet"></div>
+
+<!-- ============ FINALE ============ -->
+<section class="finale">
+  <div class="letter">
+    <p>Zainab &mdash; kutti, kamini, macchar, saand, gendi, lendi, shemdi, kaan-ka-mail, bagal-ka-paseena, dandruff-of-questionable-origin, hair-in-my-food, bathroom-drain, cat-poop, buffalo, burden-on-this-earth, spider, cockroach, cricket &mdash; and somehow, through all of it, the most disguisting creature I have ever known</p>
+    <p>Nobody else on earth gets called this many disgusting things and comes out the other side more loved, not less. That's kind of the whole point of best friends &mdash; nobody else has earned the right to call you a cockroach and mean it as the highest compliment.</p>
+    <p>Here's to 19. May the roasting never stop, may the friendship never break, and may you keep being the best, filthiest, most gorgeous specimen your best friend has ever had the joy of knowing.</p>
+    <p class="sign">&mdash; your best friend, curator of this cabinet since day one</p>
+  </div>
+
+  <div class="addendum">
+    <svg class="ghost-icon" viewBox="0 0 60 60" aria-hidden="true"><use href="#ic-ghost"/></svg>
+    <p class="kicker">Addendum &mdash; filed by an uncredited observer</p>
+    <p>Zainab. Yes, it's me. I've been floating around this exhibit longer than either of you, mostly to make sure my child wasn't going soft, and mostly because some habits don't end just because I did.</p>
+    <p>One correction to the record, since I'm here anyway: eighteen names, eighteen jokes, and not one of them changes who I raised the smarter one to be. You're welcome to argue. I'll be standing right behind you when you do.</p>
+    <p>Happy birthday, Aunty's still around. I always am.</p>
+    <p class="sign">&mdash; Aunty, still watching, still unimpressed</p>
+  </div>
+
+  <p class="birthday-line">Happy 19th, <span class="age">Kutti.</span></p>
+</section>
+
+<footer>Handle this exhibit gently. It only comes around once a year.</footer>
+
+</div>
+
+<script>
+
+(function(){
+  var specimens = [
+    {icon:"ic-moth", tint:"amber", n:"01", common:"Kutti", latin:"Canis minimus chaoticus", note:"Small, loyal, occasionally feral. Bites only the people who deserve it."},
+    {icon:"ic-scorpion", tint:"blood", n:"02", common:"Kamini", latin:"Scorpio vindictus", note:"Charming right up until the sting. You never see it coming, and you never mind."},
+    {icon:"ic-mosquito", tint:"amber", n:"03", common:"Macchar", latin:"Culex eternum", note:"Shows up uninvited, impossible to swat, somehow missed the moment it leaves the room."},
+    {icon:"ic-beetle", tint:"shell", n:"04", common:"Saand", latin:"Scarabaeus taurus", note:"Charges through every room like it's owed rent. Nothing in its path survives the entrance."},
+    {icon:"ic-stick", tint:"shell", n:"05", common:"Gendi", latin:"Phasmatodea bizarra", note:"Defies categorization. Looks ordinary from a distance, deeply strange up close, treasured regardless."},
+    {icon:"ic-beetle", tint:"blood", n:"06", common:"Lendi", latin:"Scarabaeus minutus", note:"Small, unglamorous, weirdly essential to the ecosystem of this friendship."},
+    {icon:"ic-silverfish", tint:"amber", n:"07", common:"Shemdi", latin:"Lepisma nocturna", note:"Elusive by daylight. Appears without warning, usually via a 2am voice note."},
+    {icon:"ic-earwig", tint:"blood", n:"08", common:"Kaan ka Mail", latin:"Forficula devota", note:"Lives rent-free in the ear at all hours. Mostly through opinions nobody asked for."},
+    {icon:"ic-bee", tint:"amber", n:"09", common:"Bagal ka Paseena", latin:"Halictidae persistens", note:"Drawn to salt, drawn to you, scientifically impossible to shake off."},
+    {icon:"ic-moth", tint:"shell", n:"10", common:"Bagal ke Baal ka Dandruf", latin:"Tineola fidelis", note:"A moth in the closet of this friendship. Flaky by nature, devoted by choice."},
+    {icon:"ic-fly", tint:"amber", n:"11", common:"Khaane ke Niwaale mein Baal", latin:"Drosophila invitus", note:"Arrives the instant food touches the table. Ruins the bite, somehow improves the meal."},
+    {icon:"ic-fly", tint:"blood", n:"12", common:"Bathroom ki Mohri", latin:"Psychodidae domestica", note:"Thrives exactly where nobody thinks to look. Unbothered by the smell of the truth."},
+    {icon:"ic-fly", tint:"shell", n:"13", common:"Billi ki Tatti", latin:"Calliphora iridescens", note:"Proof that even the worst material can catch the light and somehow still shine."},
+    {icon:"ic-strider", tint:"amber", n:"14", common:"Bains", latin:"Gerridae graceful", note:"Heavy footsteps, surprisingly light heart. Glides through chaos like it weighs nothing at all."},
+    {icon:"ic-pillbug", tint:"shell", n:"15", common:"Dharti pe Bojh", latin:"Armadillidium preciosum", note:"Officially classified as a burden. Unofficially, improves every soil it's ever touched."},
+    {icon:"ic-spider", tint:"blood", n:"16", common:"Makdi", latin:"Aranea dramatica", note:"Eight legs, zero chill, weaves elaborate plans mostly to expose you in the group chat."},
+    {icon:"ic-cockroach", tint:"amber", n:"17", common:"Coackroch", latin:"Periplaneta immortalis", note:"Will outlive nuclear winter and every situationship you've ever had. Ultimate survivor."},
+    {icon:"ic-cricket", tint:"shell", n:"18", common:"Jhingur", latin:"Gryllus nocturnus", note:"Sings loudly at ungodly hours &mdash; see: every 3am call &mdash; impossible to locate, impossible to silence."}
+  ];
+
+  var tilts = [-3,2,-1.5,3.5,-2.5,1,2.5,-3.5,1.5,-1,3,-2,0.5,-4,2.8,-1.8,3.2,-0.8];
+
+  var cabinet = document.getElementById('cabinet');
+  var frag = document.createDocumentFragment();
+
+  specimens.forEach(function(s, i){
+    var card = document.createElement('article');
+    card.className = 'specimen ' + s.tint + '-tint';
+    card.style.setProperty('--tilt', tilts[i % tilts.length] + 'deg');
+    card.tabIndex = 0;
+    card.innerHTML =
+      '<span class="pin"></span>' +
+      '<span class="entry-no">No. ' + s.n + '</span>' +
+      '<svg class="bug-icon" viewBox="0 0 60 60" aria-hidden="true"><use href="#' + s.icon + '"/></svg>' +
+      '<h3 class="common-name">' + s.common + '</h3>' +
+      '<span class="latin-name">' + s.latin + '</span>' +
+      '<p class="field-note">' + s.note + '</p>';
+
+    function scurry(){
+      card.classList.remove('scurry');
+      void card.offsetWidth;
+      card.classList.add('scurry');
+    }
+    card.addEventListener('click', scurry);
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); scurry(); }
+    });
+
+    frag.appendChild(card);
+  });
+
+  cabinet.appendChild(frag);
+
+  // ambient embers
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    var emberField = document.getElementById('embers');
+    var count = window.innerWidth < 600 ? 10 : 20;
+    for(var i=0;i<count;i++){
+      var e = document.createElement('div');
+      e.className = 'ember';
+      var left = Math.random()*100;
+      var duration = 9 + Math.random()*10;
+      var delay = Math.random()*12;
+      var drift = (Math.random()*60-30) + 'px';
+      e.style.left = left + 'vw';
+      e.style.animationDuration = duration + 's';
+      e.style.animationDelay = delay + 's';
+      e.style.setProperty('--drift', drift);
+      emberField.appendChild(e);
+    }
+  }
+})();
+
+(function(){
+  var TOTAL_SECONDS = 100;
+  var remaining = TOTAL_SECONDS;
+  var timerEl = document.getElementById('timer');
+  var timerWrap = document.querySelector('.gate-timer');
+  var riddleStage = document.getElementById('riddle-stage');
+  var phraseStage = document.getElementById('phrase-stage');
+  var successStage = document.getElementById('gate-success');
+  var gateBox = document.getElementById('gate');
+  var gateTitle = document.getElementById('gate-title');
+  var lockedContent = document.getElementById('locked-content');
+
+  var tabBtns = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+  var tabPanels = Array.prototype.slice.call(document.querySelectorAll('.tab-panel'));
+  var answerInputs = Array.prototype.slice.call(document.querySelectorAll('.answer-input'));
+  var answerSubmits = Array.prototype.slice.call(document.querySelectorAll('.answer-submit'));
+  var riddleFeedback = document.getElementById('riddle-feedback');
+
+  var phraseInput = document.getElementById('phrase-input');
+  var phraseSubmit = document.getElementById('phrase-submit');
+  var phraseFeedback = document.getElementById('phrase-feedback');
+
+  var TARGET_PHRASE = "i, zainab, hereby confirm that mustafa is smarter than me and always has been.";
+
+  var interval = null;
+
+  function formatTime(s){
+    var m = Math.floor(s/60);
+    var sec = s%60;
+    return (m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;
+  }
+
+  function tick(){
+    remaining--;
+    if(timerEl) timerEl.textContent = formatTime(Math.max(remaining,0));
+    if(remaining <= 20 && timerWrap) timerWrap.classList.add('low');
+    if(remaining <= 0){
+      clearInterval(interval);
+      timeUp();
+    }
+  }
+
+  function startTimer(){
+    remaining = TOTAL_SECONDS;
+    if(timerEl) timerEl.textContent = formatTime(remaining);
+    if(timerWrap) timerWrap.classList.remove('low');
+    clearInterval(interval);
+    interval = setInterval(tick, 1000);
+  }
+
+  function setInputsDisabled(disabled){
+    answerInputs.forEach(function(inp){ inp.disabled = disabled; });
+    answerSubmits.forEach(function(btn){ btn.disabled = disabled; });
+    tabBtns.forEach(function(btn){ btn.disabled = disabled; });
+  }
+
+  function timeUp(){
+    setInputsDisabled(true);
+    riddleFeedback.textContent = "Time's up. The specimen escapes uncounted.";
+    riddleFeedback.classList.remove('ok');
+    setTimeout(function(){
+      riddleStage.hidden = true;
+      gateTitle.textContent = 'One Condition Remains';
+      phraseStage.hidden = false;
+      phraseInput.focus();
+    }, 1100);
+  }
+
+  function switchTab(name){
+    tabBtns.forEach(function(btn){
+      var active = btn.getAttribute('data-tab') === name;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    tabPanels.forEach(function(panel){
+      panel.hidden = panel.id !== ('panel-' + name);
+    });
+    riddleFeedback.textContent = '';
+    riddleFeedback.classList.remove('ok');
+  }
+
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      switchTab(btn.getAttribute('data-tab'));
+    });
+  });
+
+  function checkAnswer(inputEl){
+    var val = (inputEl.value || '').trim().toLowerCase();
+    var normalized = val.replace(/[^a-z0-9]/g,'');
+    if(normalized === '19' || normalized === 'nineteen'){
+      clearInterval(interval);
+      setInputsDisabled(true);
+      riddleFeedback.textContent = 'Correct. The case creaks open.';
+      riddleFeedback.classList.add('ok');
+      setTimeout(unlockContent, 900);
+    } else {
+      riddleFeedback.textContent = 'Not quite. Every subject leads to the same number \u2014 try again.';
+      riddleFeedback.classList.remove('ok');
+      riddleFeedback.classList.remove('shake');
+      void riddleFeedback.offsetWidth;
+      riddleFeedback.classList.add('shake');
+    }
+  }
+
+  function normalizePhrase(s){
+    return (s || '').trim().toLowerCase().replace(/\s+/g,' ').replace(/[’]/g,"'");
+  }
+
+  function checkPhrase(){
+    var val = normalizePhrase(phraseInput.value);
+    if(val === TARGET_PHRASE){
+      phraseFeedback.textContent = 'Confirmed.';
+      phraseFeedback.classList.add('ok');
+      phraseStage.hidden = true;
+      gateTitle.hidden = true;
+      successStage.hidden = false;
+      setTimeout(unlockContent, 900);
+    } else {
+      phraseFeedback.textContent = 'Not exact. Word for word, please.';
+      phraseFeedback.classList.remove('ok');
+      phraseFeedback.classList.remove('shake');
+      void phraseFeedback.offsetWidth;
+      phraseFeedback.classList.add('shake');
+    }
+  }
+
+  function unlockContent(){
+    gateBox.style.display = 'none';
+    lockedContent.hidden = false;
+    lockedContent.classList.add('fade-in');
+    lockedContent.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  answerSubmits.forEach(function(btn){
+    var panel = btn.closest('.tab-panel');
+    var input = panel.querySelector('.answer-input');
+    btn.addEventListener('click', function(){ checkAnswer(input); });
+    input.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); checkAnswer(input); } });
+  });
+
+  phraseSubmit.addEventListener('click', checkPhrase);
+  phraseInput.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); checkPhrase(); } });
+
+  startTimer();
+})();
+</script>
+
+</body>
+</html>
