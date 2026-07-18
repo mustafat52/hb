@@ -953,7 +953,7 @@
         <span class="photo-caption">Subject on file</span>
       </div>
       <p>The clock won. Before the case opens anyway, one condition remains &mdash; type the following, exactly as written:</p>
-      <p class="phrase-target">&ldquo;i, Zainab, hereby confirm that I am a dumb bitch and Mustafa is smarter person I have ever known&rdquo;</p>
+      <p class="phrase-target">&ldquo;i, Zainab, hereby confirm that I am a dumb bitch and Mustafa is smartest person I have ever known&rdquo;</p>
       <div class="gate-row">
         <label for="phrase-input" class="sr-only">Type the confirmation</label>
         <input type="text" id="phrase-input" autocomplete="off" placeholder="Type it exactly">
@@ -1104,7 +1104,7 @@
   var phraseSubmit = document.getElementById('phrase-submit');
   var phraseFeedback = document.getElementById('phrase-feedback');
 
-  var TARGET_PHRASE = "i, Zainab, hereby confirm that I am a dumb bitch and Mustafa is smarter person I have ever known";
+  var TARGET_PHRASE = "i, Zainab, hereby confirm that I am a dumb bitch and Mustafa is smartest person I have ever known";
 
   var interval = null;
 
@@ -1187,27 +1187,33 @@
     }
   }
 
-  function normalizePhrase(s){
-    return (s || '').trim().toLowerCase().replace(/\s+/g,' ').replace(/[’]/g,"'");
-  }
+function normalizePhrase(s){
+  return (s || '')
+    .toLowerCase()
+    .replace(/[^a-z\s]/g, '')   // strip punctuation
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
-  function checkPhrase(){
-    var val = normalizePhrase(phraseInput.value);
-    if(val === TARGET_PHRASE){
-      phraseFeedback.textContent = 'Confirmed.';
-      phraseFeedback.classList.add('ok');
-      phraseStage.hidden = true;
-      gateTitle.hidden = true;
-      successStage.hidden = false;
-      setTimeout(unlockContent, 900);
-    } else {
-      phraseFeedback.textContent = 'Not exact. Word for word, please.';
-      phraseFeedback.classList.remove('ok');
-      phraseFeedback.classList.remove('shake');
-      void phraseFeedback.offsetWidth;
-      phraseFeedback.classList.add('shake');
-    }
+function checkPhrase(){
+  var val = normalizePhrase(phraseInput.value);
+  var required = ['zainab','confirm','mustafa','smartest'];
+  var passes = required.every(function(word){ return val.indexOf(word) !== -1; });
+  if(passes){
+    phraseFeedback.textContent = 'Confirmed.';
+    phraseFeedback.classList.add('ok');
+    phraseStage.hidden = true;
+    gateTitle.hidden = true;
+    successStage.hidden = false;
+    setTimeout(unlockContent, 900);
+  } else {
+    phraseFeedback.textContent = 'Close, but say it properly.';
+    phraseFeedback.classList.remove('ok');
+    phraseFeedback.classList.remove('shake');
+    void phraseFeedback.offsetWidth;
+    phraseFeedback.classList.add('shake');
   }
+}
 
   function unlockContent(){
     gateBox.style.display = 'none';
