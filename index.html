@@ -257,6 +257,43 @@
     padding-left:1rem;
   }
 
+  .subject-photo{
+    position:relative;
+    width:140px;
+    margin:0 auto 1.8rem;
+    padding:10px 10px 26px;
+    background:var(--parchment);
+    box-shadow:0 10px 24px -8px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.3);
+    transform:rotate(-2deg);
+  }
+  .subject-photo .pin{
+    position:absolute;
+    top:-7px; left:50%;
+    transform:translateX(-50%);
+    width:11px; height:11px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--blood-bright), var(--blood) 70%);
+    box-shadow:0 0 6px rgba(122,32,32,0.6), 0 1px 2px rgba(0,0,0,0.6);
+  }
+  .subject-photo img{
+    display:block;
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    filter:sepia(0.35) contrast(1.05) brightness(0.92) saturate(0.9);
+  }
+  .subject-photo .photo-caption{
+    display:block;
+    text-align:center;
+    margin-top:8px;
+    font-family:'Special Elite', monospace;
+    font-size:0.6rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--void);
+    opacity:0.75;
+  }
+
   .gate-timer{
     font-size:0.72rem;
     letter-spacing:0.1em;
@@ -910,8 +947,13 @@
     </div>
 
     <div id="phrase-stage" hidden>
+      <div class="subject-photo">
+        <span class="pin"></span>
+        <img src="zainab.jpg" alt="Photograph of Zainab, subject on file" loading="lazy">
+        <span class="photo-caption">Subject on file</span>
+      </div>
       <p>The clock won. Before the case opens anyway, one condition remains &mdash; type the following, exactly as written:</p>
-      <p class="phrase-target">&ldquo;I, Zainab, is a dumb bitch and confirm that Mustafa is the smartest person I know.&rdquo;</p>
+      <p class="phrase-target">&ldquo;i, Zainab, hereby confirm that I am a dumb bitch and Mustafa is smarter person I have ever known&rdquo;</p>
       <div class="gate-row">
         <label for="phrase-input" class="sr-only">Type the confirmation</label>
         <input type="text" id="phrase-input" autocomplete="off" placeholder="Type it exactly">
@@ -940,7 +982,7 @@
 <!-- ============ FINALE ============ -->
 <section class="finale">
   <div class="letter">
-    <p>Zainab &mdash; kutti, kamini, macchar, saand, gendi, lendi, shemdi, kaan-ka-mail, bagal-ka-paseena, dandruff-of-questionable-origin, hair-in-my-food, bathroom-drain, cat-poop, buffalo, burden-on-this-earth, spider, cockroach, cricket &mdash; and somehow, through all of it, the most disguisting creature I have ever known</p>
+    <p>Zainab &mdash; kutti, kamini, macchar, saand, gendi, lendi, shemdi, kaan-ka-mail, bagal-ka-paseena, dandruff-of-questionable-origin, hair-in-my-food, bathroom-drain, cat-poop, buffalo, burden-on-this-earth, spider, cockroach, cricket &mdash; and somehow, through all of it, the most disgusting creature I have ever known.</p>
     <p>Nobody else on earth gets called this many disgusting things and comes out the other side more loved, not less. That's kind of the whole point of best friends &mdash; nobody else has earned the right to call you a cockroach and mean it as the highest compliment.</p>
     <p>Here's to 19. May the roasting never stop, may the friendship never break, and may you keep being the best, filthiest, most gorgeous specimen your best friend has ever had the joy of knowing.</p>
     <p class="sign">&mdash; your best friend, curator of this cabinet since day one</p>
@@ -1041,7 +1083,7 @@
 })();
 
 (function(){
-  var TOTAL_SECONDS = 100;
+  var TOTAL_SECONDS = 40;
   var remaining = TOTAL_SECONDS;
   var timerEl = document.getElementById('timer');
   var timerWrap = document.querySelector('.gate-timer');
@@ -1062,7 +1104,7 @@
   var phraseSubmit = document.getElementById('phrase-submit');
   var phraseFeedback = document.getElementById('phrase-feedback');
 
-  var TARGET_PHRASE = "i, zainab, hereby confirm that mustafa is smarter than me and always has been.";
+  var TARGET_PHRASE = "i, Zainab, hereby confirm that I am a dumb bitch and Mustafa is smarter person I have ever known";
 
   var interval = null;
 
